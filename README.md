@@ -6,6 +6,7 @@ Snap package for [Grafito](https://github.com/ralsina/grafito), a simple, self-c
 
 This repository contains the Snap packaging definition (`snapcraft.yaml`) for building and distributing Grafito as a Snap package for Ubuntu and other Linux distributions that support Snap.
 
+
 ## 🚀 Install
 
 ```bash
@@ -21,7 +22,6 @@ Run manually in the terminal:
 ```bash
 grafito
 ```
-
 
 Then open http://localhost:3000 in your browser.
 
