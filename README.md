@@ -8,29 +8,14 @@ This repository contains the Snap packaging definition (`snapcraft.yaml`) for bu
 
 ## 🚀 Install
 
-Once published to the Snap Store:
-
 ```bash
 sudo snap install grafito
-```
-
-Or install manually from a local .snap file:
-
-```bash
-sudo snap install --dangerous grafito_*.snap
 ```
 
 
 ## 🛠️ Usage
 
-Start the Grafito web UI as a daemon:
-
-```bash
-sudo snap start grafito.daemon
-```
-
-
-Or run manually in the terminal:
+Run manually in the terminal:
 
 
 ```bash
