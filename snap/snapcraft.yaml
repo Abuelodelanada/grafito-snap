@@ -1,4 +1,4 @@
-name: grafito
+name: pepe-grafito # FIXME: Change the name with just grafito
 summary: Grafito is a simple, self-contained web-based log viewer for journalctl
 description: |
   Grafito is a simple, self-contained web-based log viewer for journalctl.
@@ -6,7 +6,7 @@ description: |
 
 contact: jose.masson@gmail.com
 license: MIT
-confinement: classic
+confinement: strict # FIXME: The snap need to be classic
 
 base: core24
 adopt-info: grafito
