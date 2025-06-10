@@ -6,8 +6,7 @@ description: |
 
 contact: jose.masson@gmail.com
 license: MIT
-version: v0.9.1
-confinement: strict
+confinement: classic
 
 base: core24
 adopt-info: grafito
@@ -25,24 +24,24 @@ parts:
     plugin: nil
     source: https://github.com/ralsina/grafito.git
     source-type: git
-    source-tag: v0.9.1
     build-snaps:
       - crystal/latest/stable
     build-packages:
       - pkg-config
       - libssl-dev
       - libpcre2-dev
+    override-pull: |
+        snapcraftctl pull
+        last_committed_tag="$(git describe --tags $(git rev-list --tags --max-count=1))"
+        git fetch
+        git checkout "${last_committed_tag}"
+        [ -n "$(echo ${last_committed_tag} | grep "-")" ] && grade=devel || grade=stable
+        snapcraftctl set-version "${last_committed_tag}"
+        snapcraftctl set-grade "$grade"
     override-build: |
-      make
-      install -D ${CRAFT_PART_BUILD}/bin/grafito ${CRAFT_PART_INSTALL}/bin/grafito
+        make
+        install -D ${CRAFT_PART_BUILD}/bin/grafito ${CRAFT_PART_INSTALL}/bin/grafito
 
 apps:
   grafito:
     command: bin/grafito
-    plugs:
-    - network-bind
-    - time-control
-    - hardware-observe
-    - mount-observe
-    - network-observe
-    - system-observe
